@@ -51,4 +51,8 @@ db.Items.belongsTo(db.Users);
 db.Items.belongsToMany(db.Seasons, { through: 'items_seasons', foreignKey: 'ItemsId' });
 db.Seasons.belongsToMany(db.Items, { through: 'items_seasons', foreignKey: 'SeasonsId' });
 
+// join을 위한 관계 설정
+db.items_seasons.belongsTo(db.Items, {foreignKey: 'ItemsId'});
+db.items_seasons.belongsTo(db.Seasons, {foreignKey: 'SeasonsId'});
+
 module.exports = db;
