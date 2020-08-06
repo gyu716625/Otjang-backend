@@ -3,11 +3,12 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 
-const passport = require('passport');
-
 const userRouter = require('./routes/user');
 const itemRouter = require('./routes/item');
 const infoRouter = require('./routes/info');
+const googleRouter = require('./routes/google');
+
+const passport = require('passport');
 
 const imageRouter = require('./routes/image-upload');
 
@@ -18,11 +19,8 @@ const port = 5000;
 //body로 넘어온 데이터를 JSON 객체로 변환 
 app.use(bodyParser.json());
 
-app.use(passport.initialize());
-
 //console에서 확인을 하기 위해
 app.use(morgan('dev'));
-
 
 //cors를 대응하기 위한 라이브러리
 app.use(cors());
@@ -34,11 +32,17 @@ app.get('/',(req,res) => {
     res.send('1차 배포용 서버 실행테스트')
 })
 
+app.get('/fail',(req,res) => {
+  res.send('fail')
+})
+
+
 //url에 따른 라우팅
 app.use('/user', userRouter);
 app.use('/item', itemRouter);
 app.use('/info', infoRouter);
 app.use('/image', imageRouter);
+app.use('/auth/google', googleRouter);
 
 
 //port 번호 설정
