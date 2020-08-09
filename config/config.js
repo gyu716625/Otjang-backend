@@ -1,4 +1,4 @@
-require('dotenv').config(); //환경변수 불러옴.
+require('dotenv').config();
 
 module.exports = {
   development: {
@@ -8,7 +8,7 @@ module.exports = {
     host: 'localhost',
     dialect: 'mysql'
   },
-  production: { // production으로 고쳐야하나..?
+  production: {
     username: 'admin',
     password: process.env.CLOTH_DEP,
     database: 'cloth',
@@ -16,4 +16,4 @@ module.exports = {
     port: 13306,
     dialect: 'mysql'
   }
-}
+};

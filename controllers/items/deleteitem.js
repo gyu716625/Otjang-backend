@@ -5,7 +5,7 @@ module.exports = {
     delete: (async(req, res) => {
         const { item_id } = req.params
         await Items.destroy({
-                where: { id: item_id }
+            where: { id: item_id }
         })
 
         await items_seasons.destroy({

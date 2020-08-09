@@ -2,9 +2,7 @@ const { UserItemViews } = require('../../models/index');
 
 module.exports = {
     get: async(req, res) => {
-        const { id , email } = req.decoded;
-        
-        console.log(UserItemViews);
+        const { id } = req.decoded;
 
         await UserItemViews
           .findAll({

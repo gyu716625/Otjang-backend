@@ -56,7 +56,6 @@ router.get('/', passport.authenticate('google', {
 // 토큰을 생성해줘야 한다.
 router.get('/callback', passport.authenticate('google', { session: false }), function(req, res) {
     //successRedirect: '/'
-     console.log('req.user: \n',req.user)
     Users.
         findOne({
             where: {
@@ -73,7 +72,7 @@ router.get('/callback', passport.authenticate('google', { session: false }), fun
             console.log(token);
             res.status(200).json({  message: 'Successful' , id: data.id, email: data.email, token: token });
         }).catch((err) => {
-            res.status(404).json({ err : err.message })
+            res.status(404).json({ err : err.message });
         })
 
 });
