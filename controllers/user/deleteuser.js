@@ -27,7 +27,6 @@ module.exports= {
                         result.map((acc) => {
                             season_itemId.push(acc.id);
                         })
-                        console.log(season_itemId)
                     }
                 })
 
@@ -35,7 +34,6 @@ module.exports= {
                 await Items.destroy({
                     where: { Userid: id }
                 },{ transaction: t })
-                
                 // items_seasons 테이블에서 삭제
                 for(let i of season_itemId){
                     await items_seasons.destroy({
@@ -54,7 +52,6 @@ module.exports= {
             res.status(200).json({ message: 'Successful' });
 
         }catch(err){
-            console.log(err.message)
             res.status(404).json({ message: "Failed", err: err.message });
         }
     }

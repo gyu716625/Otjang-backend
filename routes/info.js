@@ -7,6 +7,6 @@ const {infoController} = require('../controllers');
 const authMiddleware = require('./auth');
 
 router.use('/', authMiddleware);
-router.get('/',infoController.senddata.get)
+router.get('/',infoController.senddata.get);
 
 module.exports = router;

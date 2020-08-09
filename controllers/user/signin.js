@@ -31,18 +31,13 @@ module.exports = {
 
           // passport
           // https://stackhoarder.com/2019/07/17/node-js-passport-js-jwt-token-%EC%9D%B4%EC%9A%A9%ED%95%B4-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B5%AC%ED%98%84/
-          console.log(result);
 
           //토큰화 할 내용을 작성
           const payload = { id: result.id, email: result.email }
-
-
           const token = jwt.sign(payload,process.env.JWT_SECRET,
             { // 토큰 유지 기간 설정 10s' 테스트 완료
               expiresIn: "1 days"
             });
-
-          console.log(token);
 
           res.status(200).json({
             message: 'Successful' ,id: result.id, token: token
@@ -50,7 +45,6 @@ module.exports = {
         }
       })
       .catch((err) => {
-        console.log('signin err: ', err.message)
         res.status(404).json({ message: "Failed", err:err.message });
       });
     })

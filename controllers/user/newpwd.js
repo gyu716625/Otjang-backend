@@ -3,15 +3,16 @@ const crypto = require('crypto');
 
 module.exports = {
     post: async(req, res) => {
-        const { id , email } = req.decoded;
+        const { email } = req.decoded;
         let { password, newpassword } = req.body;
 
-        console.log('id check: ', id);
         password = crypto.pbkdf2Sync(password, process.env.PASSWORD_SALT, 48537, 64, 'sha512').toString('base64');
 
         await Users
-          .update({ 
-            password: newpassword},
+          .update(
+            {
+            password: newpassword
+            },
             { 
               where: {
                 email: email,
@@ -24,7 +25,6 @@ module.exports = {
                 res.status(200).json({ message : 'Successful' });
               }
           }).catch((err) => {
-              console.log('newpwd err: ',err.message)
               res.status(404).json({ message : "Failed", err: err.message });
           })
         

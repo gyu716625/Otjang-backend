@@ -8,7 +8,7 @@ const singleUpload = upload.single('image');  //중요함... key를 image로 받
 router.post('/upload', function(req,res) {
   
   singleUpload(req,res,function(err) {
-    return res.json({'imageUrl': req.file.location}) 
+    return res.json({'imageUrl': req.file.location});
   })
 })
 

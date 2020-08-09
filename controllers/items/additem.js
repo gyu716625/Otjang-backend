@@ -12,8 +12,6 @@ module.exports = {
         let seasonId = [];
         let itemId='';
 
-        console.log(sequelize.transaction)
-
         try{
 
             await sequelize.transaction(async(t) => {
@@ -43,7 +41,6 @@ module.exports = {
                 .then(data => {
                     itemId = data.id;
                 })
-
                 for(let i of seasonId){
                     console.log(i)
                     await items_seasons.create({
@@ -63,20 +60,3 @@ module.exports = {
     })
 
 };
-
-
-// for(let i in season) {
-//     items_seasons.create({
-//     ItemsId: res.id,
-//     SeasonsId: Seasons.findOne({
-//         where: {
-//             season: season[i]
-//             } 
-//     })
-// })
-// }
-
-// await res.status(200).send({
-//     "message": "Successful",
-//     "item_id": newOne.id
-//})

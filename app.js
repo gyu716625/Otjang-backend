@@ -8,8 +8,6 @@ const itemRouter = require('./routes/item');
 const infoRouter = require('./routes/info');
 const googleRouter = require('./routes/google');
 
-const passport = require('passport');
-
 const imageRouter = require('./routes/image-upload');
 
 //express 서버 실행
@@ -30,11 +28,11 @@ app.use(morgan())
 
 app.get('/',(req,res) => {
     res.send('1차 배포용 서버 실행테스트')
-})
+});
 
 app.get('/fail',(req,res) => {
   res.send('fail')
-})
+});
 
 
 //url에 따른 라우팅
