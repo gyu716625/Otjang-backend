@@ -3,6 +3,7 @@ module.exports = {
     signout: require('./signout'),
     signup: require('./signup'),
     newpwd: require('./newpwd'),
-    deleteuser: require('./deleteuser')
+    deleteuser: require('./deleteuser'),
+    socialsignin: require('./socialsignin')
   };
   
