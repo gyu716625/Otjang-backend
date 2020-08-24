@@ -1,4 +1,4 @@
-# otjang-backend
+# Otjang-backend
 
 ## Intro
 
