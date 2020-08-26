@@ -11,8 +11,6 @@ router.post('/signup',userController.signup.post);
 
 router.post('/signin',userController.signin.post);
 
-router.post('/social/signin',userController.socialsignin.post);
-
 // login된 유저인지 토큰을 확인하는 미들웨어
 router.use('/signout', authMiddleware);
 router.get('/signout', userController.signout.get);

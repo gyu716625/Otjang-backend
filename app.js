@@ -30,11 +30,6 @@ app.get('/',(req,res) => {
     res.send('1차 배포용 서버 실행테스트')
 });
 
-app.get('/fail',(req,res) => {
-  res.send('fail')
-});
-
-
 //url에 따른 라우팅
 app.use('/user', userRouter);
 app.use('/item', itemRouter);
